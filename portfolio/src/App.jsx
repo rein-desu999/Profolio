@@ -20,6 +20,13 @@ export default function App() {
           <Route path="/resume" element={<Resume />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/kittyeclipse" element={<KittyEclipse />} />
+          <Route path="/projects" element={<Projects />} />
+          <Route path="/projects/forklift" element={<ForkliftProject />} />
+          <Route path="/projects/circuit" element={<CircuitProject />} />
+          <Route path="/projects/kittyeclipse" element={<KittyEclipse />} />
+          <Route path="/projects/ngcp" element={<NgcpProject />} />
+          <Route path="/projects/smartphone" element={<SmartphoneProject />} />
+          <Route path="/projects/blade" element={<BladeProject />} />
         </Routes>
       </main>
       <Footer />
