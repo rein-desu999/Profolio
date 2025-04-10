@@ -8,8 +8,13 @@ const KittyEclipse = () => {
   const [showContent, setShowContent] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setShowContent(true), 7000);
-    return () => clearTimeout(timer);
+    document.body.classList.add(styles.overrideGradient);
+    const timer = setTimeout(() => setShowContent(true), 9000);
+    
+    return () => {
+      document.body.classList.remove(styles.overrideGradient);
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
@@ -26,7 +31,7 @@ const KittyEclipse = () => {
       {/* Page Content */}
       <div className={styles.content}>
         <h1>KittyEclipse Project</h1>
-        {/* Project details*/}
+        {/* Project details will go here */}
       </div>
     </div>
   );
