@@ -1,0 +1,218 @@
+.homeContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hero Section>*/
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  min-height: 80vh;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.heroContent {
+  flex: 1;
+  padding-right: 2rem;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  color: var(--navy-dark);
+  line-height: 1.2;
+}
+
+.hero h1 span {
+  color: var(--navy-light);
+  display: block;
+  margin-top: 0.5rem;
+  font-weight: 900;
+}
+
+.hero p {
+  font-size: 1.8rem;
+  color: var(--navy);
+  font-weight: 400;
+}
+
+.profileImage {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profileImage img {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 8px solid var(--gold);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* About Content */
+
+.aboutSection {
+  display: flex;
+  flex-direction: row; 
+  gap: 3rem;
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.aboutContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.aboutContent h2 {
+  color: var(--navy-dark);
+  margin-bottom: 1.5rem;
+  font-size: 2.5rem;
+}
+
+.aboutContent p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  color: var(--navy);
+}
+
+.projectButton {
+  display: inline-block;
+  background-color: var(--navy);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+  margin-top: 1rem;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.projectButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.2);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.projectButton:hover::before {
+  width: 100%;
+}
+
+.projectButton.secondary::before {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.projectButton:hover {
+  background-color: var(--navy-light);
+  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.05);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.projectButton {
+  transition: all 0.3s ease, transform 0.2s ease;
+}
+
+.projectLinks {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
+
+.projectButton.secondary {
+  background-color: var(--gold);
+  color: var(--navy-dark);
+}
+
+.projectButton.secondary:hover {
+  background-color: #e6b008;
+}
+.projectShowcase {
+  width: 100%; 
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+
+}
+
+.projectImage {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.projectCaption {
+  font-style: italic;
+  color: var(--navy);
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    padding: 2rem 1rem;
+  }
+  
+  .heroContent {
+    padding-right: 0;
+    margin-bottom: 3rem;
+  }
+  
+  .hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero p {
+    font-size: 1.4rem;
+  }
+  
+  .profileImage img {
+    width: 250px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .aboutSection {
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+  
+  .aboutContent h2 {
+    font-size: 2rem;
+  }
+
+  .projectShowcase {
+    align-items: center;
+    margin-top: 2rem;
+  }
+  
+  .aboutContent h2 {
+    font-size: 2rem;
+  }
+}

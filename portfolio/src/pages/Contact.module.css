@@ -1,0 +1,143 @@
+.contactContainer {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem; 
+  }
+  
+  .section {
+    margin-bottom: 2rem;
+  }
+  
+  .section h2 {
+    color: var(--navy-dark);
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+  }
+  
+  .contactForm {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .formGroup {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .formGroup label {
+    font-weight: 500;
+    color: var(--navy);
+  }
+  
+  .formGroup input,
+  .formGroup textarea {
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--navy);
+    border-radius: 12px;
+    font-family: 'Ubuntu', sans-serif;
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .formGroup textarea {
+    min-height: 150px;
+    resize: vertical;
+  }
+  
+  .nameFields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+  
+  .submitButton {
+    background-color: var(--navy);
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s;
+    font-size: 1rem;
+  }
+  
+  .submitButton:hover {
+    background-color: var(--navy-light);
+    transform: translateY(-2px);
+  }
+  
+  .contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+  }
+  
+  .contactItem {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .linkedInLink {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.8rem 1.2rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 12px;
+    transition: all 0.3s;
+  }
+  
+  .linkedInLink:hover {
+    background-color: rgba(255, 255, 255, 1);
+    text-decoration: none;
+    transform: translateY(-2px);
+  }
+  
+  .linkedInLogo {
+    width: 24px;
+    height: 24px;
+  }
+  .submitButton {
+    margin-top: 1rem;
+    padding: 1.2rem;
+    width: 100%;
+    max-width: 300px;
+  }
+  
+  .linkedInLink {
+    margin-top: 1rem;
+    padding: 1.2rem;
+  }
+  
+  .contactInfo {
+    gap: 2rem;
+  }
+  
+  @media (max-width: 768px) {
+    .contactContainer {
+      grid-template-columns: 1fr;
+      padding: 1rem;
+    }
+    
+    .nameFields {
+      grid-template-columns: 1fr;
+    }
+    
+    .section h2 {
+      font-size: 1.5rem;
+    }
+
+    .submitButton {
+        max-width: 100%;
+      }
+  }
