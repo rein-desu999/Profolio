@@ -1,6 +1,6 @@
 import React from 'react'
 
-function SmartphoneProject() {
+function Smartphone() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function SmartphoneProject() {
   )
 }
 
-export default SmartphoneProject
+export default Smartphone

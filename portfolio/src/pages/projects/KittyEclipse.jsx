@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import styles from './KittyEclipse.module.css';
-import kittyImage from '../assets/Kitty.png';
-import eyesImage from '../assets/KittyEyes.png';
-import logoImage from '../assets/KittyEclipse_Logo.png';
+import kittyImage from '../../assets/Kitty.png';
+import eyesImage from '../../assets/KittyEyes.png';
+import logoImage from '../../assets/KittyEclipse_Logo.png';
 
 const KittyEclipse = () => {
   const [showContent, setShowContent] = useState(false);

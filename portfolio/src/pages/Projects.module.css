@@ -2,40 +2,39 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
-  }
-  
-  .header {
     text-align: center;
-    margin-bottom: 3rem;
   }
   
-  .filterButtons {
+  .filterButtonsContainer {
     display: flex;
     justify-content: center;
-    gap: 1rem;
     margin-bottom: 2rem;
+  }  
+
+  .filterButtons {
+    display: flex;
+    gap: 1rem;
     flex-wrap: wrap;
+    justify-content: center;
   }
   
   .filterButton {
-    background: none;
-    border: 2px solid var(--navy);
-    color: var(--navy);
-    padding: 0.5rem 1.5rem;
-    border-radius: 50px;
+    background-color: var(--navy);
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
     cursor: pointer;
-    font-weight: bold;
     transition: all 0.3s;
   }
   
   .filterButton.active {
-    background-color: var(--navy);
-    color: white;
+    background-color: var(--gold);
+    color: var(--navy-dark);
   }
   
   .filterButton:hover {
-    background-color: var(--navy-light);
-    color: white;
+    transform: translateY(-2px);
   }
   
   .projectsGrid {
@@ -45,10 +44,11 @@
   }
   
   .projectCard {
-    background: white;
+    background-color: white;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: relative;
     transition: transform 0.3s;
   }
   
@@ -64,21 +64,99 @@
   
   .projectInfo {
     padding: 1.5rem;
+    display: none;
   }
   
   .projectInfo h3 {
-    margin-top: 0;
+    margin-bottom: 0.5rem;
     color: var(--navy-dark);
   }
   
   .projectInfo p {
     color: var(--navy);
-    margin-bottom: 0.5rem;
   }
   
-  .projectDate {
-    font-style: italic;
-    color: var(--navy-light);
+  .projectTags {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  .projectImageContainer {
+    position: relative;
+    width: 100%;
+    padding-bottom: 100%; 
+    overflow: hidden;
+    background-color: var(--navy);
+  }
+  
+  .projectImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .projectCard:hover .projectImage {
+    transform: scale(1.05);
+  }
+  
+  .projectOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 114, 0.7); /* navy with 70% opacity */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .projectCard:hover .projectOverlay {
+    opacity: 1;
+  }
+  
+  .projectOverlay h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: var(--gold);
+  }
+  
+  .projectOverlay p {
+    margin: 0.5rem 0 0;
+    font-size: 1rem;
+  }
+
+  .projectIconFallback {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 3rem;
+    color: var(--gold);
+    opacity: 0.7;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .tag {
+    background-color: var(--blue-light);
+    color: var(--navy);
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
   }
   
   @media (max-width: 768px) {

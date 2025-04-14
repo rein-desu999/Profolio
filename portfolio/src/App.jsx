@@ -6,7 +6,9 @@ import Projects from './pages/Projects';
 import Leadership from './pages/Leadership';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
-import KittyEclipse from './pages/KittyEclipse';
+import KittyEclipse from './pages/projects/KittyEclipse';
+import ForkliftProject from './pages/projects/Forklift';
+import DigitalCircuitProject from './pages/projects/DigitalCircuit';
 
 export default function App() {
   return (
@@ -20,13 +22,8 @@ export default function App() {
           <Route path="/resume" element={<Resume />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/kittyeclipse" element={<KittyEclipse />} />
-          <Route path="/projects" element={<Projects />} />
           <Route path="/projects/forklift" element={<ForkliftProject />} />
-          <Route path="/projects/circuit" element={<CircuitProject />} />
-          <Route path="/projects/kittyeclipse" element={<KittyEclipse />} />
-          <Route path="/projects/ngcp" element={<NgcpProject />} />
-          <Route path="/projects/smartphone" element={<SmartphoneProject />} />
-          <Route path="/projects/blade" element={<BladeProject />} />
+          <Route path="/projects/digital-circuit" element={<DigitalCircuitProject />} />
         </Routes>
       </main>
       <Footer />

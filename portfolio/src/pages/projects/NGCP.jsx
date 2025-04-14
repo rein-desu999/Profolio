@@ -1,6 +1,6 @@
 import React from 'react'
 
-function ForkliftProject() {
+function NGCP() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function ForkliftProject() {
   )
 }
 
-export default ForkliftProject
+export default NGCP

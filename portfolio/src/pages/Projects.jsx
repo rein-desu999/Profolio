@@ -1,158 +1,95 @@
 import { useState } from 'react';
-import { FaPhone, FaMicrochip } from 'react-icons/fa';
-import styles from './Projects.module.css';
 import { Link } from 'react-router-dom';
-
-// Project data
-const projects = {
-  internship: [],
-  class: [
-    {
-      id: 'forklift',
-      title: 'Mini Forklift Project',
-      date: 'March 2024 - May 2024',
-      category: 'Class Project',
-      image: '/assets/forklift.jpg'
-    },
-    {
-      id: 'circuit',
-      title: 'Digital Circuit Design Lab',
-      date: 'Jan 2025 - May 2025',
-      category: 'Class Project',
-      icon: <FaMicrochip size={80} />,
-      bgColor: '#f0f0f0'
-    }
-  ],
-  student: [
-    {
-      id: 'kittyeclipse',
-      title: 'KittyEclipse',
-      date: 'Jan 2025 - Present',
-      category: 'Student Program Project',
-      image: '/assets/KittyEclipse_Logo.png'
-    },
-    {
-      id: 'ngcp',
-      title: 'NGCP',
-      date: 'Aug 2024 - Present',
-      category: 'Student Program Project',
-      image: '/assets/ngcp.jpg'
-    },
-    {
-      id: 'smartphone',
-      title: 'Smartphone Project',
-      date: 'Sept 2024 - Present',
-      category: 'Student Program Project',
-      icon: <FaPhone size={80} />,
-      bgColor: '#f0f0f0'
-    },
-    {
-      id: 'blade',
-      title: 'BLADE Ragnarok',
-      date: 'Sept 2023 - Jul 2024',
-      category: 'Student Program Project',
-      image: '/assets/TUV_Logo.png'
-    }
-  ],
-  hackathon: [
-    {
-      id: 'hackathon1',
-      title: 'Hackathon Project 1',
-      date: '2024',
-      category: 'Hackathon Project'
-    },
-    {
-      id: 'hackathon2',
-      title: 'Hackathon Project 2',
-      date: '2024',
-      category: 'Hackathon Project'
-    },
-    {
-      id: 'hackathon3',
-      title: 'Hackathon Project 3',
-      date: '2024',
-      category: 'Hackathon Project'
-    }
-  ]
-};
+import styles from './Projects.module.css';
+import { FaProjectDiagram, FaMicrochip } from 'react-icons/fa';
+import forkliftImage from '../assets/forklift.jpg';
 
 const Projects = () => {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState('All');
 
-  const allProjects = [
-    ...projects.class,
-    ...projects.student,
-    ...projects.hackathon
+  const projects = [
+    {
+      id: '1',
+      title: 'Mini Forklift Project',
+      description: 'Designed and built a miniature automated forklift system with obstacle detection and pathfinding capabilities.',
+      image: forkliftImage, 
+      tags: ['Class Project'],
+      date: 'March 2024 - May 2024',
+      route: '/projects/forklift'
+    },
+    {
+      id: '2',
+      title: 'Digital Circuit Design Lab',
+      description: 'Developed digital circuits using Verilog and FPGAs.',
+      image: null,
+      icon: <FaMicrochip size={50} />,
+      tags: ['Class Project'],
+      date: 'January 2025 - May 2025',
+      route: '/projects/digital-circuit'
+    }
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? allProjects 
-    : activeFilter === 'class'
-      ? projects.class
-      : activeFilter === 'student'
-        ? projects.student
-        : projects.hackathon;
+  const filters = ['All', 'Internship', 'Class Project', 'Student Program Project', 'Hackathon Project'];
+
+  const filteredProjects = activeFilter === 'All' 
+    ? projects 
+    : projects.filter(project => project.tags.includes(activeFilter));
+
+  const sortedProjects = [...filteredProjects].sort((a, b) => {
+    const getEndDate = (dateStr) => {
+      const parts = dateStr.split(' - ');
+      return parts.length > 1 ? new Date(parts[1]) : new Date(0);
+    };
+    return getEndDate(b.date) - getEndDate(a.date);
+  });
 
   return (
     <div className={styles.container}>
-      <div className={styles.header}>
-        <h1>My Projects</h1>
-        <p>Collection of my work across different categories</p>
-      </div>
-
-      <div className={styles.filterButtons}>
-        <button 
-          className={`${styles.filterButton} ${activeFilter === 'all' ? styles.active : ''}`}
-          onClick={() => setActiveFilter('all')}
-        >
-          All Projects
-        </button>
-        <button 
-          className={`${styles.filterButton} ${activeFilter === 'class' ? styles.active : ''}`}
-          onClick={() => setActiveFilter('class')}
-        >
-          Class Projects ({projects.class.length})
-        </button>
-        <button 
-          className={`${styles.filterButton} ${activeFilter === 'student' ? styles.active : ''}`}
-          onClick={() => setActiveFilter('student')}
-        >
-          Student Program ({projects.student.length})
-        </button>
-        <button 
-          className={`${styles.filterButton} ${activeFilter === 'hackathon' ? styles.active : ''}`}
-          onClick={() => setActiveFilter('hackathon')}
-        >
-          Hackathon ({projects.hackathon.length})
-        </button>
+      <h1>Projects</h1>
+      
+      <div className={styles.filterButtonsContainer}>
+        <div className={styles.filterButtons}>
+          {filters.map(filter => (
+            <button
+              key={filter}
+              className={`${styles.filterButton} ${activeFilter === filter ? styles.active : ''}`}
+              onClick={() => setActiveFilter(filter)}
+            >
+              {filter}
+            </button>
+          ))}
+        </div>
       </div>
 
       <div className={styles.projectsGrid}>
-        {filteredProjects.map((project) => (
-          <Link to={`/projects/${project.id}`} key={project.id} className={styles.projectCard}>
-            {project.image ? (
-              <img 
-                src={project.image} 
-                alt={project.title} 
-                className={styles.projectImage}
-              />
-            ) : (
-              <div 
-                className={styles.projectImage} 
-                style={{ 
-                  backgroundColor: project.bgColor || '#f0f0f0',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}
-              >
-                {project.icon || project.title.charAt(0)}
+        {sortedProjects.map(project => (
+          <Link to={project.route} key={project.id} className={styles.projectCard}>
+            <div className={styles.projectImageContainer}>
+              {project.image ? (
+                <img 
+                  src={project.image} 
+                  alt={project.title} 
+                  className={styles.projectImage}
+                />
+              ) : (
+                <div className={styles.projectIconFallback}>
+                  {project.icon || <FaProjectDiagram size={48} />}
+                </div>
+              )}
+              <div className={styles.projectOverlay}>
+                <h3>{project.title}</h3>
+                <p>{project.tags[0]}</p>
               </div>
-            )}
+            </div>
             <div className={styles.projectInfo}>
               <h3>{project.title}</h3>
-              <p className={styles.projectDate}>{project.date}</p>
-              <p>{project.category}</p>
+              <p>{project.description}</p>
+              <small>{project.date}</small>
+              <div className={styles.projectTags}>
+                {project.tags.map(tag => (
+                  <span key={tag} className={styles.tag}>{tag}</span>
+                ))}
+              </div>
             </div>
           </Link>
         ))}
