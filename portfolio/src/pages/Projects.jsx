@@ -1,11 +1,16 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from './Projects.module.css';
-import { FaProjectDiagram, FaMicrochip } from 'react-icons/fa';
+import { FaProjectDiagram, FaMicrochip, FaMobileAlt, FaClinicMedical } from 'react-icons/fa';
 import forkliftImage from '../assets/forklift.jpg';
+import ngcpImage from '../assets/ngcp.jpg';
+import tuvLogo from '../assets/tuv_logo.png';
+import sapplingImage from '../assets/sappling.png';
+import kittyeclipseLogo from '../assets/KittyEclipse_Logo.png';
 
 const Projects = () => {
   const [activeFilter, setActiveFilter] = useState('All');
+  const [transition, setTransition] = useState(false);
 
   const projects = [
     {
@@ -26,6 +31,61 @@ const Projects = () => {
       tags: ['Class Project'],
       date: 'January 2025 - May 2025',
       route: '/projects/digital-circuit'
+    },
+    {
+      id: '3',
+      title: 'Kitty Eclipse',
+      description: 'Developed a game using Unity and C# as part of a game development course.',
+      image: kittyeclipseLogo,
+      tags: ['Student Program Project'],
+      date: 'January 2025 - Present',
+      route: '/kittyeclipse'
+    },
+    {
+      id: '4',
+      title: 'Smartphone Project',
+      description: 'Developing innovative smartphone applications with cutting-edge features and user experience enhancements.',
+      image: null,
+      tags: ['Student Program Project'],
+      date: 'August 2024 - Present',
+      route: '/projects/smartphone'
+    },
+    {
+      id: '5',
+      title: 'Northrop Grumman Collaboration Project',
+      description: 'Collaborating with Northrop Grumman on advanced aerospace technologies and systems integration.',
+      image: ngcpImage,
+      tags: ['Student Program Project'],
+      date: 'August 2024 - Present',
+      route: '/projects/ngcp'
+    },
+    {
+      id: '6',
+      title: 'Balloon Launch Assessment Directive for Everyone',
+      description: 'Developed high-altitude balloon launch systems for atmospheric research and payload testing.',
+      image: tuvLogo,
+      tags: ['Student Program Project'],
+      date: 'September 2023 - July 2024',
+      route: '/projects/blade'
+    },
+    {
+      id: '7',
+      title: 'Pneumonia Dectection',
+      description: 'Developed an AI model to detect pneumonia from chest X-ray images.',
+      image: null,
+      icon: <FaClinicMedical size={50} />,
+      tags: ['Hackathon Project'],
+      date: 'March 2024',
+      route: '/projects/pneumonia'
+    },
+    {
+      id: '8',
+      title: 'Sapling',
+      description: 'Developed Web App to assist Pre-K to K-5 to help detect specific learning disability.',
+      image: sapplingImage,
+      tags: ['Hackathon Project'],
+      date: 'March 2024',
+      route: '/projects/sapling'
     }
   ];
 
@@ -61,9 +121,9 @@ const Projects = () => {
         </div>
       </div>
 
-      <div className={styles.projectsGrid}>
+      <div className={`${styles.projectsGrid} ${transition ? styles.transitionOut : ''}`}>
         {sortedProjects.map(project => (
-          <Link to={project.route} key={project.id} className={styles.projectCard}>
+          <Link to={project.route} key={project.id} className={`${styles.projectCard} ${transition ? styles.slideOut : ''}`}>
             <div className={styles.projectImageContainer}>
               {project.image ? (
                 <img 
@@ -73,7 +133,15 @@ const Projects = () => {
                 />
               ) : (
                 <div className={styles.projectIconFallback}>
-                  {project.icon || <FaProjectDiagram size={48} />}
+                  {project.title.includes('Circuit') ? (
+                    <FaMicrochip size={80} />
+                  ) : project.title.includes('Smartphone') ? (
+                    <FaMobileAlt size={80} />
+                  ) : project.title.includes('Pneumonia') ? (
+                    <FaClinicMedical size={80} />
+                  ) : (
+                    <FaProjectDiagram size={80} />
+                  )}
                 </div>
               )}
               <div className={styles.projectOverlay}>

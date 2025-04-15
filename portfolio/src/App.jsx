@@ -9,6 +9,11 @@ import Contact from './pages/Contact';
 import KittyEclipse from './pages/projects/KittyEclipse';
 import ForkliftProject from './pages/projects/Forklift';
 import DigitalCircuitProject from './pages/projects/DigitalCircuit';
+import Smartphone from './pages/projects/Smartphone';
+import NGCP from './pages/projects/NGCP';
+import BLADE from './pages/projects/BLADE';
+import Pneumonia from './pages/projects/Pneumonia';
+import Sappling from './pages/projects/Sappling';
 
 export default function App() {
   return (
@@ -24,6 +29,11 @@ export default function App() {
           <Route path="/kittyeclipse" element={<KittyEclipse />} />
           <Route path="/projects/forklift" element={<ForkliftProject />} />
           <Route path="/projects/digital-circuit" element={<DigitalCircuitProject />} />
+          <Route path="/projects/smartphone" element={<Smartphone/>} />
+          <Route path="/projects/ngcp" element={<NGCP />} />
+          <Route path="/projects/blade" element={<BLADE />} />
+          <Route path="/projects/pneumonia" element={<Pneumonia />} />
+          <Route path="/projects/sappling" element={<Sappling />} />
         </Routes>
       </main>
       <Footer />

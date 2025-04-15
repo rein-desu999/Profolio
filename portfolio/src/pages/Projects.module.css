@@ -41,8 +41,14 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 2rem;
+    transition: all 0.3s ease;
   }
   
+  .transitionOut{
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
   .projectCard {
     background-color: white;
     border-radius: 8px;
@@ -50,6 +56,13 @@
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     position: relative;
     transition: transform 0.3s;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .projectCard.slideOut{
+    opacity: 0;
+    transform: translateX(-50px);
   }
   
   .projectCard:hover {
@@ -88,7 +101,7 @@
     width: 100%;
     padding-bottom: 100%; 
     overflow: hidden;
-    background-color: var(--navy);
+    background-color: black;
   }
   
   .projectImage {
