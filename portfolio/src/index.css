@@ -2,9 +2,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap');
 
 :root {
-  --navy-dark: #00005A;
-  --navy: #000072;
-  --navy-light: #01008C;
+  --navy-dark: #052c4f;
+  --navy: #073763;
+  --navy-light: #ededed;
   --gold: #FDC30B;
   --blue-light: #9BCBEB;
   --blue-lighter: #C4E1F0;
