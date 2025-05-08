@@ -15,12 +15,12 @@ const Projects = () => {
   const projects = [
     {
       id: '1',
-      title: 'Mini Forklift Project',
-      description: 'Designed and built a miniature automated forklift system with obstacle detection and pathfinding capabilities.',
-      image: forkliftImage, 
-      tags: ['Class Project'],
-      date: 'March 2024 - May 2024',
-      route: '/projects/forklift'
+      title: 'Northrop Grumman Collaboration Project',
+      description: 'Collaborating with Northrop Grumman on advanced aerospace technologies and systems integration.',
+      image: ngcpImage,
+      tags: ['Student Program Project'],
+      date: 'August 2024 - Present',
+      route: '/projects/ngcp'
     },
     /*{
       id: '2',
@@ -52,12 +52,12 @@ const Projects = () => {
     },
     {
       id: '5',
-      title: 'Northrop Grumman Collaboration Project',
-      description: 'Collaborating with Northrop Grumman on advanced aerospace technologies and systems integration.',
-      image: ngcpImage,
-      tags: ['Student Program Project'],
-      date: 'August 2024 - Present',
-      route: '/projects/ngcp'
+      title: 'Mini Forklift Project',
+      description: 'Designed and built a miniature automated forklift system with obstacle detection and pathfinding capabilities.',
+      image: forkliftImage, 
+      tags: ['Class Project'],
+      date: 'March 2024 - May 2024',
+      route: '/projects/forklift'
     },
     {
       id: '6',

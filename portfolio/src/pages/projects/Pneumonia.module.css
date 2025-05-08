@@ -1,11 +1,166 @@
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: var(--navy-dark);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.header h1 {
+  font-size: 2rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.date {
+  color: var(--navy-dark);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--navy-light);
+  font-style: italic;
+}
+
+.projectOverview {
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 3rem;
+  align-items: center;
+}
+
+.textContent {
+  flex: 1;
+}
+
+.textContent h2 {
+  color: var(--navy);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.5rem;
+}
+
+.textContent p {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.roleSection {
+  background-color: var(--blue-lighter);
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin: 2rem 0;
+}
+
+.roleSection p {
+  margin-bottom: 0;
+}
+
+.videoWrapper {
+  flex: 1;
+  display: flex;
+  align-items: center; 
+  min-height: 315px; 
+}
+
+.videoContainer {
+  width: 100%;
+  max-width: 560px;
+}
+
+.video {
+  width: 100%;
+  height: 315px;
+  border: none;
+  border-radius: 8px;
+}
+
+.linksContainer {
+  margin-top: 2rem;
+}
+
+.githubButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--navy);
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 2px solid var(--navy);
+}
+
+.githubButton:hover {
+  background-color: var(--gold);
+  color: var(--navy-dark);
+  border-color: var(--gold);
+}
+
+.githubIcon {
+  font-size: 1.2rem;
+}
+
+.skills {
+  margin-bottom: 3rem;
+}
+
+.skills h2 {
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.5rem;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.skillBox {
+  background-color: var(--blue-lighter);
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .projectOverview {
+    flex-direction: column;
+    align-items: flex-start;
   }
   
-  @media (max-width: 768px) {
-    .container {
-      padding: 1rem;
-    }
+  .videoContainer {
+    min-height: auto;
+    width: 100%;
+    margin-top: 1.5rem;
   }
+  
+  .video {
+    height: 250px;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+  
+  .skillsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}
+
+@media (max-width: 480px) {
+  .video {
+    height: 200px;
+  }
+}
