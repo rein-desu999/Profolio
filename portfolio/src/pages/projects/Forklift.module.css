@@ -17,7 +17,7 @@
 }
   
 .date {
-    color: gray;
+    color: var(--navy-dark);
     font-size: 1.1rem;
     margin-bottom: 0.5rem;
 }

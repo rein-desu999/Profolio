@@ -1,11 +1,226 @@
 .container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  color: var(--navy-dark);
+}
+
+.logoHeader {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.logo {
+  max-width: 200px;
+  max-height: 200px;
+  object-fit: contain;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  color: var(--navy);
+  margin-bottom: 0.5rem;
+}
+
+.date {
+  color: var(--navy-dark);
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--navy-light);
+  font-style: italic;
+}
+
+.overview {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.textContent h2 {
+  color: var(--navy);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.5rem;
+}
+
+.textContent p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.imageWithCaption {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2rem 0;
+}
+
+.cleanImage {
+  width: 100%;
+  max-width: 600px;
+  max-height: 400px;
+  object-fit: contain;
+}
+
+.caption {
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: gray;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.features {
+  margin-bottom: 3rem;
+}
+
+.features h2 {
+  color: var(--navy);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.5rem;
+}
+
+.featureList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1rem;
+  padding-left: 1.5rem;
+}
+
+.featureList li {
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+}
+
+.contributions {
+  margin-bottom: 3rem;
+}
+
+.contributions h2 {
+  color: var(--navy);
+  margin-bottom: 1rem;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.5rem;
+}
+
+.contributions p, .contributions ul {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.contributions li {
+  margin-bottom: 0.5rem;
+}
+
+.linksContainer {
+  margin-top: 2rem;
+}
+
+.githubText {
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.linkButtons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.githubButton, .youtubeButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.githubButton {
+  background-color: var(--navy);
+  color: white;
+  border: 2px solid var(--navy);
+}
+
+.youtubeButton {
+  background-color: #FF0000;
+  color: white;
+  border: 2px solid #FF0000;
+}
+
+.githubButton:hover {
+  background-color: var(--gold);
+  color: var(--navy-dark);
+  border-color: var(--gold);
+}
+
+.youtubeButton:hover {
+  background-color: white;
+  color: #FF0000;
+}
+
+.skills {
+  margin-bottom: 3rem;
+}
+
+.skills h2 {
+  color: var(--navy);
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid var(--gold);
+  padding-bottom: 0.5rem;
+}
+
+.skillsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.skillBox {
+  background-color: var(--blue-lighter);
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 500;
+}
+
+@media (max-width: 768px) {
+  .logo {
+    max-width: 150px;
+    max-height: 150px;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
   }
   
-  @media (max-width: 768px) {
-    .container {
-      padding: 1rem;
-    }
+  .featureList {
+    grid-template-columns: 1fr;
   }
+  
+  .skillsGrid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+  
+  .linkButtons {
+    flex-direction: column;
+  }
+  
+  .githubButton, .youtubeButton {
+    justify-content: center;
+  }
+}

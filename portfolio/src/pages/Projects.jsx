@@ -22,7 +22,7 @@ const Projects = () => {
       date: 'March 2024 - May 2024',
       route: '/projects/forklift'
     },
-    {
+    /*{
       id: '2',
       title: 'Digital Circuit Design Lab',
       description: 'Developed digital circuits using Verilog and FPGAs.',
@@ -31,7 +31,7 @@ const Projects = () => {
       tags: ['Class Project'],
       date: 'January 2025 - May 2025',
       route: '/projects/digital-circuit'
-    },
+    },*/
     {
       id: '3',
       title: 'Kitty Eclipse',
@@ -80,12 +80,12 @@ const Projects = () => {
     },
     {
       id: '8',
-      title: 'Sapling',
+      title: 'Sappling',
       description: 'Developed Web App to assist Pre-K to K-5 to help detect specific learning disability.',
       image: sapplingImage,
       tags: ['Hackathon Project'],
-      date: 'March 2024',
-      route: '/projects/sapling'
+      date: 'March 23 2024',
+      route: '/projects/sappling'
     }
   ];
 

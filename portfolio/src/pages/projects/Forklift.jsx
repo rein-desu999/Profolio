@@ -9,7 +9,7 @@ const ForkliftProject = () => {
   const skills = [
     'Arduino Programming', 'C++', 'Bluetooth Integration', 
     'Circuit Design', 'Project Management', 'MBSE',
-    'Hardware Prototyping', 'Problem Solving'
+    'Hardware Prototyping'
   ];
 
   return (
@@ -66,7 +66,7 @@ const ForkliftProject = () => {
         <p>
           The system was broken into functional components with clear inputs/outputs. For example, we programmed the wheels to move 
           forward when values were positive, brake at zero, and reverse when negative. The system also activated warning lights and 
-          sounds when objects were detected on the lifting platform.
+          sounds when objects were detected on the lifting platform. CCW is for lifting up the platform, and CW is for lowering it.
         </p>
         <p className={styles.githubText}>For more technical details, please check out my project on GitHub:</p>
   
