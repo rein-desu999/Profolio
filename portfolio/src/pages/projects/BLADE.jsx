@@ -1,25 +1,32 @@
 import styles from './BLADE.module.css';
 import { useState } from 'react';
-import cubsatImage from '../../assets/blade/cubsat.png';
-import cdrcubesatImage from '../../assets/blade/cdr_cubesat.png';
-import cdrImage from '../../assets/blade/cdr.png';
+import cubesatImage from '../../assets/blade/cubesat.png';
+import missionImage from '../../assets/blade/mission.png';
+import demoVideo from '../../assets/blade/demo.mp4';
+
+// Import slideshow images
+import codrImage from '../../assets/blade/codr.png';
 import pdrImage from '../../assets/blade/pdr.png';
-import codrImage from '../../assets/blade/codr.jpg';
+import cdrImage from '../../assets/blade/cdr.png';
+import cdrCubesatImage from '../../assets/blade/cdr_cubesat.png';
 import electricalImage from '../../assets/blade/electrical.png';
 import demoGroupImage from '../../assets/blade/demo_group.png';
-import missionImage from '../../assets/blade/mission.png';
-import ReactPlayer from 'react-player';
+
+const slides = [
+  { image: codrImage, caption: 'TUV at Conceptual Design Review' },
+  { image: pdrImage, caption: 'TUV at Preliminary Design Review' },
+  { image: cdrImage, caption: 'TUV at Critical Design Review' },
+  { image: cdrCubesatImage, caption: 'TUV CubeSat Prototype' },
+  { image: electricalImage, caption: 'System Testing' },
+  { image: demoGroupImage, caption: 'TUV at CubeSat Demo Day' }
+];
 
 const BLADE = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  
-  const slides = [
-    { image: codrImage, caption: "TUV at Conceptual Design Review" },
-    { image: pdrImage, caption: "TUV at Preliminary Design Review" },
-    { image: cdrImage, caption: "TUV at Critical Design Review" },
-    { image: cdrcubesatImage, caption: "Prototype CubeSat" },
-    { image: electricalImage, caption: "System Testing" },
-    { image: demoGroupImage, caption: "TUV at CubeSat Demo Day" }
+  const skills = [
+    'Project Leadership', 'Systems Engineering', 'UV Radiation Analysis',
+    'Team Management', 'CubeSat Design', 'Concept of Operations', 'Testing & Integration',
+    'Data Analysis', 'Technical Documentation', 'Presentation Skills'
   ];
 
   const nextSlide = () => {
@@ -32,89 +39,97 @@ const BLADE = () => {
 
   return (
     <div className={styles.container}>
-      {/* Project Header */}
       <header className={styles.header}>
-        <h1>BLADE: UV Protection Research</h1>
-        <p className={styles.date}>September 2023 - May 2024</p>
+        <h1>BLADE: TUV CubeSat Mission</h1>
         <p className={styles.subtitle}>Bronco Space at CPP | Top 4 Team Selected for Flight</p>
       </header>
 
       {/* Project Inspiration Section */}
-      <section className={styles.inspiration}>
+      <section className={styles.section}>
         <div className={styles.textContent}>
           <h2>Project Inspiration</h2>
           <p>
-            BLADE is part of a student competition team by Bronco Space at CPP. The Balloon Launch 
-            Assessment Directive for Everyone (BLADE) provides inexperienced students the opportunity 
-            to learn the processes of designing, building, testing, and launching a BalloonSat and 
-            HAB vehicle to enhance their engineering skills.
+            The Balloon Launch Assessment Directive for Everyone (BLADE) is part of a student competition team by Bronco Space at CPP. 
+            BLADE is a program intended to provide inexperienced students the opportunity to learn the processes of designing, 
+            building, testing, and launching a BalloonSat and HAB vehicle to enhance their engineering skills. Each team is provided 
+            resources and training from seasoned members of Bronco Space to perform the necessary tasks to complete their mission, 
+            bringing on industry experience, textbook references, and sponsored manufacturing.
           </p>
           <p>
-            Each team is provided resources and training from seasoned members of Bronco Space to 
-            perform the necessary tasks to complete their mission, bringing industry experience, 
-            textbook references, and sponsored manufacturing.
+            At the beginning of the project, my team TUV was thinking about what our mission would be to sound scientific. 
+            I talked to my team about how my skin is very sensitive toward the sun and I thought it would be cool if we could 
+            do something about it. We further developed the primary objective of our 1U satellite mission dedicated to enhancing 
+            our understanding of UV radiation protection in high-altitude and space environments.
           </p>
           <p>
-            At the project's beginning, my team TUV was brainstorming scientific mission ideas. 
-            I shared how my skin is very sensitive to the sun, which inspired our mission focus. 
-            Our 1U satellite mission aims to enhance understanding of UV radiation protection in 
-            high-altitude and space environments by investigating four materials' UV-blocking 
-            capabilities to identify temporal patterns in UV absorbance.
-          </p>
-          <p>
-            We tested four different materials, with clear acrylic as our control to gather raw UV data.
+            By investigating four materials' UV-blocking capabilities, we aimed to identify temporal patterns and variations in 
+            UV absorbance. Our goal was to determine the most efficient materials for blocking UVA, UVB, and UVC radiations. 
+            We tested 4 different materials, with the fifth material (clear acrylic) serving as our control for raw UV data.
           </p>
         </div>
-        <div className={styles.imageWithCaption}>
-          <img src={cubsatImage} alt="Final CubeSat Design" className={styles.projectImage} />
-          <p className={styles.caption}>Fig. 1 - Final CubeSat Design</p>
+        <div className={styles.cubesatContainer}>
+          <img src={cubesatImage} alt="TUV CubeSat" className={styles.cubesatImage} />
+          <p className={styles.caption}>Fig. 1 - Final TUV CubeSat Design</p>
         </div>
       </section>
 
-      {/* Slideshow Section */}
-      <section className={styles.slideshowSection}>
-        <h2>Project Milestones</h2>
-        <div className={styles.slideshow}>
-          <button onClick={prevSlide} className={styles.slideButton}>&lt;</button>
-          <div className={styles.slide}>
-            <img src={slides[currentSlide].image} alt={slides[currentSlide].caption} />
-            <p className={styles.slideCaption}>{slides[currentSlide].caption}</p>
+      {/* Mission Image and Slideshow Section */}
+      <section className={styles.missionSlideshow}>
+        <div className={styles.missionColumn}>
+          <img src={missionImage} alt="Mission Operation Design" className={styles.missionImage} />
+          <p className={styles.caption}>Fig. 2 - Mission Operation Design</p>
+        </div>
+        
+        <div className={styles.slideshowColumn}>
+          <h2>Project Timeline</h2>
+          <div className={styles.slideshow}>
+            <button onClick={prevSlide} className={styles.slideButton}>&lt;</button>
+            <div className={styles.slideContainer}>
+              <div 
+                className={styles.slideImageWrapper}
+                style={{ backgroundImage: `url(${slides[currentSlide].image})` }}
+              >
+                <div className={styles.slideCaption}>
+                  {slides[currentSlide].caption}
+                </div>
+              </div>
+            </div>
+            <button onClick={nextSlide} className={styles.slideButton}>&gt;</button>
           </div>
-          <button onClick={nextSlide} className={styles.slideButton}>&gt;</button>
         </div>
       </section>
 
-      {/* My Role & Results Section */}
-      <section className={styles.roleResults}>
-        <div className={styles.roleContent}>
-          <h2>My Role & Results</h2>
+      {/* Results and Demo Section */}
+      <section className={styles.resultsSection}>
+        <div className={styles.resultsContent}>
+          <h2>Results & Achievements</h2>
           <p>
-            As project lead of 10 members, my responsibilities included:
+            As Project Lead for our 10-member team, I organized meetings, split tasks, assigned deadlines, 
+            designed mission operations, assisted in component selection and testing, and managed CubeSat integration.
           </p>
-          <ul>
-            <li>Organizing team meetings and setting agendas</li>
-            <li>Splitting tasks and assigning deadlines</li>
-            <li>Designing and tracking mission operations</li>
-            <li>Assisting in component selection and testing</li>
-            <li>Overseeing CubeSat integration</li>
-          </ul>
           <p>
-            In the end, our team was chosen as one of the top 4 teams out of 12 to have our CubeSat 
-            funded and flown, and we were among the first 2 teams to achieve flight by May on our campus!
+            Our team was selected as one of the top 4 teams out of 12 to have our CubeSat funded and flown, 
+            and we were one of the first two teams to achieve flight by May on our campus!
           </p>
-          <div className={styles.missionImage}>
-            <img src={missionImage} alt="Mission Operation Design" />
-            <p className={styles.caption}>Fig. 2 - Mission Operation Design</p>
-          </div>
         </div>
-        <div className={styles.demoVideo}>
-          <ReactPlayer 
-            url={require('../../assets/blade/demo.MOV')}
-            controls
-            width="100%"
-            height="auto"
-          />
-          <p className={styles.caption}>CubeSat Launch Demonstration</p>
+        <div className={styles.demoVideoContainer}>
+          <video controls className={styles.demoVideo}>
+            <source src={demoVideo} type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
+          <p className={styles.caption}>Fig. 9 - CubeSat Launch Demonstration</p>
+        </div>
+      </section>
+
+      {/* Skills Section */}
+      <section className={styles.skillsSection}>
+        <h2>Technical Skills Utilized</h2>
+        <div className={styles.skillsGrid}>
+          {skills.map((skill, index) => (
+            <div key={index} className={styles.skillBox}>
+              {skill}
+            </div>
+          ))}
         </div>
       </section>
     </div>
