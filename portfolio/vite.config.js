@@ -4,6 +4,6 @@ import react from '@vitejs/plugin-react';
 export default defineConfig({
   plugins: [react()],
   base: '/boihoanhlam/',
-  assetsInclude: ['**/*.JPG', '**/*.PNG'],
+  assetsInclude: ['**/*.JPG', '**/*.PNG', '**/*.MOV', '**/*.jpg', '**/*.png'],
 });
 
